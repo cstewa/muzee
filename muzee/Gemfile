@@ -22,6 +22,34 @@ end
 
 gem 'jquery-rails'
 
+group :development do
+  gem 'better_errors'
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+  gem 'annotate'
+  # gem 'rack-mini-profiler'
+end
+
+gem 'jquery-rails'
+gem 'nokogiri'
+gem 'haml-rails'
+gem 'sorcery'
+gem 'mail'
+gem 'fog'
+gem 'rmagick', '2.13.2'
+
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'pry-debugger'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'dotenv-rails'     # Allow rails (console, etc) to access .env file for environment variables.
+end
+
+gem 'sorcery'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
