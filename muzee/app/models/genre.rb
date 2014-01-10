@@ -1,6 +1,9 @@
 class Genre < ActiveRecord::Base
   attr_accessible :kind
 
-  has_and_belongs_to_many :artists
-  has_and_belongs_to_many :fans
+  has_many :artists, through: :artist_genres
+  has_many :artist_genres
+
+  has_many :fans, through: :fan_genres
+  has_many :fan_genres
 end

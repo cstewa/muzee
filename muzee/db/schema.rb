@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140109015250) do
+ActiveRecord::Schema.define(:version => 20140110023353) do
+
+  create_table "artist_blocked_time_slots", :force => true do |t|
+    t.integer  "artist_id"
+    t.integer  "blocked_time_slot_id"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  create_table "artist_genres", :force => true do |t|
+    t.integer  "artist_id"
+    t.integer  "genre_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "artist_genres", ["artist_id"], :name => "index_artist_genres_on_artist_id"
+  add_index "artist_genres", ["genre_id"], :name => "index_artist_genres_on_genre_id"
 
   create_table "artist_ratings", :force => true do |t|
     t.integer  "rating"
@@ -46,6 +63,20 @@ ActiveRecord::Schema.define(:version => 20140109015250) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "fan_genres", :force => true do |t|
+    t.integer  "fan_id"
+    t.integer  "genre_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "fan_shows", :force => true do |t|
+    t.integer  "fan_id"
+    t.integer  "show_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "fans", :force => true do |t|
     t.integer  "area"
     t.datetime "created_at", :null => false
@@ -63,6 +94,13 @@ ActiveRecord::Schema.define(:version => 20140109015250) do
     t.string   "kind"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "show_blocked_time_slots", :force => true do |t|
+    t.integer  "show_id"
+    t.integer  "blocked_time_slot_id"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "shows", :force => true do |t|
@@ -95,6 +133,13 @@ ActiveRecord::Schema.define(:version => 20140109015250) do
 
   add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token"
+
+  create_table "venue_blocked_time_slots", :force => true do |t|
+    t.integer  "venue_id"
+    t.integer  "blocked_time_slot_id"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
 
   create_table "venue_ratings", :force => true do |t|
     t.integer  "venue_id"
