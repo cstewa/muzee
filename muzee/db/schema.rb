@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140110023353) do
+ActiveRecord::Schema.define(:version => 20140113005927) do
 
   create_table "artist_blocked_time_slots", :force => true do |t|
     t.integer  "artist_id"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20140110023353) do
     t.boolean  "pending"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.boolean  "am"
   end
 
   create_table "fan_genres", :force => true do |t|
@@ -129,6 +130,11 @@ ActiveRecord::Schema.define(:version => 20140110023353) do
     t.string   "reset_password_token"
     t.datetime "reset_password_token_expires_at"
     t.datetime "reset_password_email_sent_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "photo"
+    t.integer  "profile_id"
+    t.string   "profile_type"
   end
 
   add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"

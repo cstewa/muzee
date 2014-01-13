@@ -15,4 +15,7 @@ class Show < ActiveRecord::Base
 
   belongs_to :artist
   belongs_to :venue
+
+  #remember you have to do @show.blocked_time_slots.first
+
 end

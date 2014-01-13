@@ -18,5 +18,8 @@ class Artist < ActiveRecord::Base
 
   has_many :venue_ratings, as: :venue_rater
 
+  def getUser
+    User.where(:profile_id => self.id).first
+  end
 
 end
