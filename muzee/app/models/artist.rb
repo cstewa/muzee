@@ -22,4 +22,12 @@ class Artist < ActiveRecord::Base
     User.where(:profile_id => self.id).first
   end
 
+  def self.playing_today
+    artist_user_array = []
+    Show.shows_today.each do |s|
+      artist_user_array << s.artist.getUser
+    end
+    artist_user_array
+  end
+
 end

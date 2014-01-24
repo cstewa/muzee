@@ -12,7 +12,6 @@ class BlockedTimeSlot < ActiveRecord::Base
 
   #run .getlocal on .start_time to get the proper time. See other Ruby methods in Time class. Also .hour
 
-
   def am?
     return true if !self.am.false
   end
