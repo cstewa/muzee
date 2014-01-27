@@ -18,6 +18,6 @@ class Fan < ActiveRecord::Base
   #make a search method for potential venues. like the venues that have stuff that the fan wants
 
   def getUser
-    User.where(:profile_id => self.id).first
+    User.where(:profile_id => self.id, :profile_type => "--- !ruby/class 'Fan'\n").first
   end
 end

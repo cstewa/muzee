@@ -1,0 +1,7 @@
+<p> Today's date </p>
+
+<ul>
+<% for show in @shows.models: %>
+  <li>$<%= show.get('price') %></li>
+<% end %>
+</ul>

@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+#same artist and venue
+Show.create(:price => 20, :artist_id => 1, :venue_id => 2, :blocked_time_slot_id => 5)
+Show.create(:price => 20, :artist_id => 1, :venue_id => 2, :blocked_time_slot_id => 6)
+Show.create(:price => 20, :artist_id => 1, :venue_id => 2, :blocked_time_slot_id => 7)
+
+#same day
+Show.create(:price => 20, :artist_id => 1, :venue_id => 1, :blocked_time_slot_id => 8)

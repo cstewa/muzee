@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :today
 
+  #comment
   def today
     date_array = Date.today.to_s.split("-")
     year = date_array[0]

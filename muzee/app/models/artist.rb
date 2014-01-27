@@ -19,7 +19,7 @@ class Artist < ActiveRecord::Base
   has_many :venue_ratings, as: :venue_rater
 
   def getUser
-    User.where(:profile_id => self.id).first
+    User.where(:profile_id => self.id, :profile_type => "--- !ruby/class 'Artist'\n").first
   end
 
   def self.playing_today

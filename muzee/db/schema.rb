@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140113005927) do
+ActiveRecord::Schema.define(:version => 20140124060240) do
 
   create_table "artist_blocked_time_slots", :force => true do |t|
     t.integer  "artist_id"
@@ -108,8 +108,9 @@ ActiveRecord::Schema.define(:version => 20140113005927) do
     t.integer  "price"
     t.integer  "venue_id"
     t.integer  "artist_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+    t.integer  "blocked_time_slot_id"
   end
 
   create_table "tracks", :force => true do |t|

@@ -1,5 +1,9 @@
 Muzee::Application.routes.draw do
-  get "main/index"
+  root to: "main#index"
+
+  scope "api" do
+    resources :shows
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

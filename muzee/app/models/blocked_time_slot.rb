@@ -1,8 +1,7 @@
 class BlockedTimeSlot < ActiveRecord::Base
   attr_accessible :duration, :start_time, :day, :pending, :am
 
-  has_many :shows, through: :show_blocked_time_slots
-  has_many :show_blocked_time_slots
+  has_many :shows
 
   has_many :artists, through: :artist_blocked_time_slots
   has_many :artist_blocked_time_slots
