@@ -1,0 +1,7 @@
+<li> <%= @show.get('artist_first_name') %>
+<%= @show.get('artist_last_name') %>
+</li>
+<li>
+  <%= @show.get('venue_name') %>
+</li>
+<br>

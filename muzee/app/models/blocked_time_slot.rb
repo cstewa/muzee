@@ -1,5 +1,5 @@
 class BlockedTimeSlot < ActiveRecord::Base
-  attr_accessible :duration, :start_time, :day, :pending, :am
+  attr_accessible :duration, :day, :pending, :am
 
   has_many :shows
 

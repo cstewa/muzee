@@ -1,7 +1,10 @@
 <p> Today's date </p>
 
-<ul>
-<% for show in @shows.models: %>
-  <li>$<%= show.get('price') %></li>
-<% end %>
+<form id="search_shows_by_date">
+  <input type="text" name="date" id="date_to_search">
+  <input type="submit" value= "Search">
+</form>
+
+
+<ul id="shows">
 </ul>

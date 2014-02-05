@@ -1,5 +1,5 @@
 class Venue < ActiveRecord::Base
-  attr_accessible :about, :address, :highest_price, :lowest_price
+  attr_accessible :about, :address, :highest_price, :lowest_price, :name
 
   has_one :user, :as => :profile
 

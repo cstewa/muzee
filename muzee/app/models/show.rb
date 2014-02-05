@@ -16,6 +16,8 @@ class Show < ActiveRecord::Base
 
   #REFACTOR LATER. also put this somewhere else more appropriate
   #return array of BTS
+
+  #split this into JUST a constant, string_date. and then do the checking in backbone
   def self.shows_today
     date_array = Date.today.to_s.split("-")
     year = date_array[0]
@@ -70,6 +72,10 @@ class Show < ActiveRecord::Base
       show_array << bts.shows
     end
     show_array.flatten!
+  end
+
+  def artist_name
+    artist.name
   end
 
 end

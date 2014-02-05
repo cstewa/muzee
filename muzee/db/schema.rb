@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140124060240) do
+ActiveRecord::Schema.define(:version => 20140201215958) do
 
   create_table "artist_blocked_time_slots", :force => true do |t|
     t.integer  "artist_id"
@@ -55,13 +55,12 @@ ActiveRecord::Schema.define(:version => 20140124060240) do
   end
 
   create_table "blocked_time_slots", :force => true do |t|
-    t.time     "start_time"
     t.float    "duration"
-    t.string   "day"
     t.boolean  "pending"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.boolean  "am"
+    t.datetime "day"
   end
 
   create_table "fan_genres", :force => true do |t|
@@ -164,6 +163,7 @@ ActiveRecord::Schema.define(:version => 20140124060240) do
     t.string   "address"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.string   "name"
   end
 
 end

@@ -8,3 +8,7 @@ class Muzee.Collections.Shows extends Backbone.Collection
   #GET /shows/{#id}
   #PUT "
   #DELETE "
+
+  parse: (data) ->
+    return data.shows if data.shows
+
