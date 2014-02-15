@@ -5,8 +5,6 @@ Muzee::Application.routes.draw do
     resources :shows
   end
 
-  get "api/shows/search/:date" => "shows#search"
-
   match '*path', to: 'main#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.

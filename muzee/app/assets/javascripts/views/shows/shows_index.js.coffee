@@ -7,6 +7,7 @@ class Muzee.Views.ShowsIndex extends Backbone.View
 
   initialize: ->
     @collection.on('reset', @render, this)
+    # @collection.on('remove', @render, this)
     @collection.on('add', @appendShow, this)
 
   render: ->
@@ -21,5 +22,5 @@ class Muzee.Views.ShowsIndex extends Backbone.View
   #going to need to refactor this the url-way
   displayShowsByDate: (event) ->
     event.preventDefault()
-    date_to_search = $('#date_to_search').val()
-    Backbone.history.navigate("shows/search/" + encodeURIComponent(date_to_search), true)
+    date = $('#date_to_search').val()
+    @collection.fetch({data: $.param({date: date})})

@@ -11,7 +11,7 @@ class Muzee.Routers.Shows extends Backbone.Router
 
   index: ->
     #might need to rename this later to have like a top_toolbar reusable view
-    alert "yay for homepage"
+    # alert "yay for homepage"
 
   show_index: ->
     view = new Muzee.Views.ShowsIndex(collection: @collection)
@@ -21,6 +21,7 @@ class Muzee.Routers.Shows extends Backbone.Router
     alert "Show #{id}"
     #make this into an actual "show" view page later!
 
-  # show_search: (date) ->
-  #   @c = new Muzee.Collections.Shows.fetch({ data: $.param({ date: date}) })
-  #   console_log @c
+  show_search: (date) ->
+    @collection = @collection.fetch({data: $.param({date: date})})
+    # view = new Muzee.Views.ShowsIndex(collection: @collection)
+    console.log(@collection)

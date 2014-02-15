@@ -17,6 +17,42 @@ class Show < ActiveRecord::Base
   #REFACTOR LATER. also put this somewhere else more appropriate
   #return array of BTS
 
+  def self.search(params)
+    shows = self
+    if params[:date]
+      shows = shows.by_date(params[:date])
+    end
+    return shows
+  end
+
+  def self.by_date(date)
+    date_to_search = date
+    date_array = date_to_search.split("-")
+    datetime_to_search_against = DateTime.new(date_array[2].to_i, date_array[0].to_i, date_array[1].to_i)
+    date_to_search_against = datetime_to_search_against.to_date
+    @slots = BlockedTimeSlot.all
+    slot_ids = []
+    @slots.each do |slot|
+      if slot.day.to_date == date_to_search_against
+        slot_ids << slot.id
+      end
+    end
+    condition = []
+    slot_ids.each do |id|
+      if condition.length == 0
+        condition << "blocked_time_slot_id = ?"
+        condition << id
+      else
+        condition[0] += " OR blocked_time_slot_id = ?"
+        condition << id
+      end
+    end
+    Show.where(condition)
+    # Show.find(:all, :conditions => condition)
+  end
+  #date: 2-5-2014, 2-6-2014, 2-7-2014, 2-8-2014
+
+
   #split this into JUST a constant, string_date. and then do the checking in backbone
   def self.shows_today
     date_array = Date.today.to_s.split("-")

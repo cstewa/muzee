@@ -9,6 +9,10 @@ class Muzee.Collections.Shows extends Backbone.Collection
   #PUT "
   #DELETE "
 
+  #dont think this is right
+  search: (date) ->
+    @fetch(data: { date: date, url: '/search' })
+
   parse: (data) ->
     return data.shows if data.shows
 
