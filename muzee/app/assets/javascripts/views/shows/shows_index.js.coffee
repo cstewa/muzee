@@ -7,7 +7,7 @@ class Muzee.Views.ShowsIndex extends Backbone.View
 
   initialize: ->
     @collection.on('reset', @render, this)
-    # @collection.on('remove', @render, this)
+    @collection.on('remove', @render, this)
     @collection.on('add', @appendShow, this)
 
   render: ->
@@ -24,3 +24,4 @@ class Muzee.Views.ShowsIndex extends Backbone.View
     event.preventDefault()
     date = $('#date_to_search').val()
     @collection.fetch({data: $.param({date: date})})
+    console.log(@collection)
